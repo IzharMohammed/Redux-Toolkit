@@ -8,7 +8,7 @@ In slice there are three things
 We have to export 3 times to todoSlice 
 */
 
-const initialState = () => {
+const initialState = {
     todos: [{ id: 1, text: "Hello Redux" }]
 }
 
