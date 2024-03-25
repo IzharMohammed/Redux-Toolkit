@@ -3,19 +3,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeTodo, EditTodo } from "../features/todo/todoSlice";
 
 function Todos() {
+  // Select todos from Redux store
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   const [edittedText, setEdittiedText] = useState("");
+   // Track the todo id being edited
   const [editId, setEditId] = useState(null);
 
+  // Function to handle save button click
   const handleSave = (todo) => {
-    dispatch(EditTodo({ id: todo.id, text: edittedText }));
-    setEditId(null);
+    dispatch(EditTodo({ id: todo.id, text: edittedText }));// Dispatch edit action with id and updated text
+    setEditId(null);// Reset editId to exit editing mode
   };
 
+  // Function to handle edit button click
   const handleEdit = (todo) => {
-    setEdittiedText(todo.text);
-    setEditId(todo.id);
+    setEdittiedText(todo.text); // Set the editedText to the current todo text
+    setEditId(todo.id);// Set the editId to the current todo id
   };
 
   return (
